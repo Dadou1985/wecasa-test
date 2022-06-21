@@ -12,6 +12,8 @@ const Prestation = () => {
     const product = useContext(ProductContext)
     console.log(product?.product && product?.product[0].prestations)
 
+    const currentProductList = product?.product && product?.product[0].prestations
+
 
   return (
     <div>
