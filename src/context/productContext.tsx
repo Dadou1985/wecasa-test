@@ -12,7 +12,8 @@ export const ProductContext = createContext<ProductContextType | null>(null)
 export const ProductContextProvider = ({children}: ProductContextProviderProps) => {
     const [product, setProduct] = useState<Product | null>(null)
     const [isLoading, setIsLoading] = useState<Boolean>(true)
-    const [filter, setFilter] = useState("Homme")
+    const [filter, setFilter] = useState<string>("Homme")
+    const [basket, setBasket] = useState<Product | Object[]>([])
 
   useEffect(() => {
     fetch('https://www.wecasa.fr/api/techtest/universe')
@@ -27,7 +28,7 @@ export const ProductContextProvider = ({children}: ProductContextProviderProps) 
 }
     
     return(
-        <ProductContext.Provider value={{product, setProduct}}>
+        <ProductContext.Provider value={{product, setProduct, basket, setBasket}}>
           <header style={{
               display: "flex",
               flexFlow: "row",
