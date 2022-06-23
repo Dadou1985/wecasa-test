@@ -1,10 +1,9 @@
-import React, {useState, useContext} from 'react'
+import React, { useContext} from 'react'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { ProductContext } from '../context/productContext';
-import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import BasketModal from './basketModal';
 
 const Header = () => {
