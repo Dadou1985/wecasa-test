@@ -1,14 +1,13 @@
-import React, { useState, useContext, useRef, MutableRefObject } from 'react'
+import React, { useContext } from 'react'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Product } from '../types/contextTypes';
 import { ProductContext } from '../context/productContext';
 
-type PrestationObject = {
+interface PrestationObject {
   reference: string,
   title: string,
   duration: number,
@@ -16,39 +15,27 @@ type PrestationObject = {
 }
 
 const Prestation = () => {
-    const state = useContext(ProductContext)
-    console.log(state?.product && state?.product[0].prestations)
-    console.log("basket", state?.basket)
-    const currentBasket: MutableRefObject<PrestationObject[]> = useRef([])
-    
+    const state = useContext(ProductContext)    
     const productList = state?.product && state?.product[0].prestations
 
     const handleAddProduct = (item: PrestationObject) => {
-       currentBasket?.current.push(item)
-       console.log("++++++++", currentBasket.current)
-       return state?.setBasket(currentBasket.current)
-    }
-
-    const handleRemoveProduct = (ref: string) => {
-       const itemIndex = currentBasket?.current.findIndex((item: PrestationObject) => item.reference === ref)
-       console.log("--------", currentBasket.current.splice(itemIndex, 1))
-       return state?.setBasket(currentBasket.current.splice(itemIndex, 1))
+       return state?.setBasket([...state.basket, item])
     }
 
   return (
     <div style={{
       display: "flex",
       flexFlow: "row wrap",
-      padding: "2%"
+      padding: "10% 2% 15% 2%",
     }}>
         {productList?.map((data: any) => {
           return (
-            <Card style={{width: "20vw", height: "40vh", margin: "1%"}} key={data.reference}>
+            <Card style={{width: "20vw", height: "60vh", margin: "2%"}} key={data.reference}>
             <CardMedia
               component="img"
-              image="/static/images/cards/contemplative-reptile.jpg"
+              image="https://image.freepik.com/vecteurs-libre/creation-logo-salon-coiffure-luxe_313044-6.jpg"
               alt="green iguana"
-              style={{height: "60%"}}
+              style={{height: "70%"}}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -66,8 +53,7 @@ const Prestation = () => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" onClick={() => handleAddProduct(data)}>Ajouter</Button>
-              <Button size="small" onClick={() => handleRemoveProduct(data.reference)}>Supprimer</Button>
+              <Button size="small" variant='contained' onClick={() => handleAddProduct(data)}>Ajouter</Button>
             </CardActions>
           </Card>
           )
