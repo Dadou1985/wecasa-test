@@ -1,0 +1,17 @@
+.basket-container{
+    width: 100vw;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
+    position: fixed;
+    bottom: 0;
+}
+
+.basket-box{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%; 
+}

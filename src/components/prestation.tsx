@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ProductContext } from '../context/productContext';
+import '../css/prestation.css'
 
 interface PrestationObject {
   reference: string,
@@ -23,14 +24,10 @@ const Prestation = () => {
     }
 
   return (
-    <div style={{
-      display: "flex",
-      flexFlow: "row wrap",
-      padding: "10% 2% 15% 2%",
-    }}>
+    <div className='global-container'>
         {productList?.map((data: any) => {
           return (
-            <Card style={{width: "20vw", height: "60vh", margin: "2%"}} key={data.reference}>
+            <Card className='card-container' key={data.reference}>
             <CardMedia
               component="img"
               image="https://image.freepik.com/vecteurs-libre/creation-logo-salon-coiffure-luxe_313044-6.jpg"
@@ -42,11 +39,7 @@ const Prestation = () => {
                 {data.title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <div style={{
-                  display: "flex",
-                  flexFlow: "row",
-                  justifyContent: "space-between"
-                }}>
+                <div className='card-body'>
                   <span>Prix: {data.price} €</span>
                   <span>Durée: {data.duration} min</span>
                 </div>

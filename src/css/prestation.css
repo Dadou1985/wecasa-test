@@ -1,0 +1,17 @@
+.global-container{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10% 2% 15% 2%;
+}
+
+.card-container{
+    width: 20vw;
+    height: 60vh; 
+    margin: 2%;
+}
+
+.card-body{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}

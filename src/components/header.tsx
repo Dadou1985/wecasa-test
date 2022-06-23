@@ -5,6 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { ProductContext } from '../context/productContext';
 import BasketModal from './basketModal';
+import '../css/header.css'
 
 const Header = () => {
     const state = useContext(ProductContext)
@@ -14,45 +15,29 @@ const Header = () => {
     }
 
   return (
-    <div style={{
-        display: "flex",
-        flexFlow: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
-        padding: "3vh 0vh 2vh 0vh",
-        position: "fixed",
-        top: "0",
-        width: "100vw",
-        backgroundColor: "white"
-    }}>
+    <div className='header-container'>
         <img 
         src="https://www.wecasa.fr/assets/logo-header-e394c584078509790b535eb960e4b3f4bf279350ec84089bd8f80a3a779773e7.png" 
         alt="wecasa-logo"
-        style={{width: "10vw"}} />
-        <div style={{
-          display: "flex",
-          flexFlow: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-          width: "20vw"
-        }}>
-        <FormControl style={{width: "10vw"}}>
-          <InputLabel id="demo-simple-select-label">Catégories</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={state?.filter}
-            label="Catégorie"
-            onChange={handleChangeFilter}
-          >
-            <MenuItem value="Homme">Homme</MenuItem>
-            <MenuItem value="Femme">Femme</MenuItem>
-            <MenuItem value="Enfant">Enfant</MenuItem>
-          </Select>
-        </FormControl>
-        <span>
-          <BasketModal />
-        </span>
+        className='img' />
+        <div className='select-basket-container'>
+          <FormControl className='select'>
+            <InputLabel id="demo-simple-select-label">Catégories</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={state?.filter}
+              label="Catégorie"
+              onChange={handleChangeFilter}
+            >
+              <MenuItem value="Homme">Homme</MenuItem>
+              <MenuItem value="Femme">Femme</MenuItem>
+              <MenuItem value="Enfant">Enfant</MenuItem>
+            </Select>
+          </FormControl>
+          <span>
+            <BasketModal />
+          </span>
         </div>
     </div>
   )

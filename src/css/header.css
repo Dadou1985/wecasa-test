@@ -1,0 +1,23 @@
+.header-container{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3vh 0vh 2vh 0vh;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: white
+}
+
+.img{width: 10vw}
+
+.select-basket-container{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 20vw;
+}
+
+.select{width: 10vw}
