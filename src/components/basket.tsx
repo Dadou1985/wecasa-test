@@ -29,7 +29,7 @@ const BasketComponent = () => {
         alignItems: "center",
         width: "10%"
       }}>
-        <h4>Montant total :</h4>
+        <h4 data-testid="heading-1">Montant total :</h4>
         {totalAmount} €
       </span>
       <span style={{
@@ -39,7 +39,7 @@ const BasketComponent = () => {
         alignItems: "center",
         width: "10%"
       }}>
-        <h4>Durée totale :</h4>
+        <h4 data-testid="heading-2">Durée totale :</h4>
         {totalDuration} minutes
       </span>
     </div>

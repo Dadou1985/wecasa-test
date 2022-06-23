@@ -34,7 +34,7 @@ const Prestation = () => {
             <CardMedia
               component="img"
               image="https://image.freepik.com/vecteurs-libre/creation-logo-salon-coiffure-luxe_313044-6.jpg"
-              alt="green iguana"
+              alt="barbershop-logo"
               style={{height: "70%"}}
             />
             <CardContent>
